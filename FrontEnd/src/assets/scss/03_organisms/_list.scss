@@ -1,0 +1,46 @@
+.o-list {
+    list-style-type: none;
+    padding: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    &-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+
+        margin: 0 8px;
+
+        &:not(:last-child) {
+            border-bottom: solid 1px lightgray;
+        }
+
+        .texts {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .small {
+            opacity: .7;
+            font-style: italic;
+        }
+
+        input[type=checkbox] {
+            width: 32px;
+            height: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

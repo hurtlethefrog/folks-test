@@ -1,0 +1,16 @@
+.p-todo {
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+
+    a {
+        color: #42b983;
+    }
+
+    &__list {
+        max-height: 30vh;
+        height: 30vh;
+
+        overflow-y: scroll;
+    }
+}

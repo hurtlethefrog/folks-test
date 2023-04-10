@@ -1,0 +1,26 @@
+version: "2"
+services:
+    # Nom du service par lequel les autres containers peuvent communiquer avec
+    apache:
+        container_name: folks-technic_apache
+        # Ont build l'image locale
+        build: .
+        # Dossier ou fichier local qui doit être monté dans le container
+        volumes:
+            - ./../:/var/www
+            - ./laravel-worker.conf:/etc/supervisor/conf.d/laravel-worker.conf
+        # Port à rendre accessible
+        ports:
+            - ${PORT}:8080
+
+    mysql:
+        container_name: folks-technic_mysql
+        image: mysql:8
+        # Variables d'environnement ajouter au container
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=flks_technic_user
+            - MYSQL_PASSWORD=super_dupper_secret_password
+            - MYSQL_DATABASE=flks_technic
+        ports:
+            - 3306:3306

@@ -1,0 +1,32 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "wake up",
+      "done": true,
+      "description": "this is the hardest part of the day",
+      "creation_date": "2022-01-01"
+    },
+    {
+      "id": 2,
+      "title": "stretch",
+      "description": "Make sure your tall enough",
+      "done": false,
+      "creation_date": "2022-01-01"
+    },
+    {
+      "id": 3,
+      "title": "???",
+      "done": true,
+      "description": "???",
+      "creation_date": "2022-01-03"
+    },
+    {
+      "id": 4,
+      "title": "profit",
+      "description": "MONEY !",
+      "done": false,
+      "creation_date": "2022-01-06"
+    }
+  ]
+}
