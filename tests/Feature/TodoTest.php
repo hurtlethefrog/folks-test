@@ -77,7 +77,6 @@ class TodoTest extends TestCase
 
         $this->assertEquals('new pizza', $updated_todo->title, 'the todo\'s title did not match the updated title');
 
-        $temp_todo->forceDelete();
     }
     public function test_update_todo_with_no_title()
     {   
@@ -108,7 +107,6 @@ class TodoTest extends TestCase
         ]);
 
         $this->assertEquals($response['errors']['title'][0], 'The title field is required.');
-        $temp_todo->forceDelete();
 
     }
     public function test_update_todo_with_long_title()
@@ -138,7 +136,6 @@ class TodoTest extends TestCase
         ]);
 
         $this->assertEquals($response['errors']['title'][0], 'The title must not be greater than 100 characters.');
-        $temp_todo->forceDelete();
 
     }
     public function test_update_todo_with_non_unique_title()
@@ -183,8 +180,6 @@ class TodoTest extends TestCase
 
         $this->assertEquals($response['errors']['title'][0], 'The title has already been taken.');
 
-        $temp_todo->forceDelete();
-        $temp_todo_2->forceDelete();
 
     }
     public function test_update_todo_with_non_castable_boolean()
@@ -216,7 +211,6 @@ class TodoTest extends TestCase
 
         $this->assertEquals($response['errors']['done'][0], 'The done field must be true or false.');
 
-        $temp_todo->forceDelete();
     }
     public function test_update_todo_without_id()
     {
@@ -245,7 +239,6 @@ class TodoTest extends TestCase
             'done' => false,
         ]);
 
-        $temp_todo->forceDelete();
     }
 
     public function test_creating_one_todo()
@@ -274,7 +267,6 @@ class TodoTest extends TestCase
             'done' => true,
         ]);
         
-        Todo::find($todo['todo']['id'])->forceDelete();
     }
     
     public function test_deleting_one_todo()
@@ -295,7 +287,6 @@ class TodoTest extends TestCase
 
         $this->assertSoftDeleted($temp_todo);
 
-        $temp_todo->forceDelete();
     }
     public function test_deleting_one_todo_without_id()
     {
@@ -320,7 +311,6 @@ class TodoTest extends TestCase
             'done' => false,
         ]);
 
-        $temp_todo->forceDelete();
     }
 
 }
