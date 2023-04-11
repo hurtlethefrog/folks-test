@@ -7,7 +7,7 @@ use App\Models\Todo;
 use Illuminate\Http\Request;
 use App\Http\Requests\TodoRequest;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
+use App\Http\Resources\TodoResource;
 
 
 class TodoController extends Controller
@@ -19,9 +19,7 @@ class TodoController extends Controller
      */
     public function index(Request $request) {
         // won't retrieve soft deleted todos
-        return response()->json([
-            'todos' => Todo::select(DB::raw('DATE_FORMAT(created_at, "%Y-%m-%d") AS creation_date, id, title, description, done'))->get()
-        ], 200);
+        return response()->json(['todos' => TodoResource::collection(Todo::all())], 200);
     }
 
     /**
