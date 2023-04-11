@@ -29,7 +29,7 @@ class TodoController extends Controller
      * @return a custom json resource
      */
     public function update(TodoRequest  $request, int $id) {
-        $updated_todo = Todo::find($id);
+        $updated_todo = Todo::findOrFail($id);
         $updated_todo->update($request->validated());
         $updated_todo->save();
 
@@ -53,7 +53,7 @@ class TodoController extends Controller
      * @return a generic response
      */
     public function destroy(Request $request, int $id) {
-        $todo = Todo::find($id)->delete();
+        $todo = Todo::findOrFail($id)->delete();
 
         return response('', 204);
     }
